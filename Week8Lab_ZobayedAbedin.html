@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Week 8 Lab - JavaScript DOM and Arrays</title>
+        <meta charset="utf-8">
+		
+		
+		
+	<style type="text/css">
+	
+	
+	
+	
+
+	
+	
+	
+form {
+ 
+  margin: 20px;
+  allign : centre;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+    text-align: center;
+margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 455px;
+}
+	
+	
+	
+	body {
+	color : white;
+	background-image: url("background.jpg");
+	allign centre;
+	rgin: 225px;
+	
+	}
+	
+	
+	
+	
+	
+	#invfname{
+	color : red;
+	positon:absolute;
+	top: 0px;
+	left:220px;
+	}
+	
+		#invlname{
+	color : red;
+	positon:absolute;
+	top: 23px;
+	left:245px;
+	}
+	
+		#invaddress{
+	color : red;
+	positon:absolute;
+	top: 46px;
+	left:260px;
+	}
+	
+		#invcity{
+	color : red;
+	positon:absolute;
+	top: 55px;
+	left:275px;
+	}
+	
+		#invprovince{
+	color : red;
+	positon:absolute;
+	top: 0px;
+	left:220px;
+	}
+	
+		#invpostalcode{
+	color : red;
+	positon:absolute;
+	top: 0px;
+	left:220px;
+	}
+	
+		#invw1{
+	color : red;
+	positon:absolute;
+	top: 0px;
+	left:220px;
+	}
+	
+		#invw2{
+	color : red;
+	positon:absolute;
+	top: 0px;
+	left:220px;
+	}
+	
+		#invw3{
+	color : red;
+	positon:absolute;
+	top: 0px;
+	left:220px;
+	}
+	
+	h2 {
+    text-align: center;
+}
+	</style>
+		
+		
+		
+    </head>
+	
+			<script>
+		
+		
+		
+		function validation(){
+		
+		invalid = 0;
+		
+		
+		
+		a = document.getElementById("firstName").value;
+		b = document.getElementById("lastName").value;
+		c = document.getElementById("address").value;
+		d = document.getElementById("city").value;
+		e = document.getElementById("province").value;
+		f = document.getElementById("postalCode").value;
+		w1 = document.getElementById("widget1qty").value;
+		w2 = document.getElementById("widget2qty").value;
+		w3 = document.getElementById("widget3qty").value;
+		
+		
+		
+		if (a == ""){
+	    document.getElementById("invfname").innerHTML = "You must type in a first name.";
+		invalid += 1;
+		} else {
+		  document.getElementById("invfname").innerHTML = "";
+		}
+		
+		if (b == ""){
+	    document.getElementById("invlname").innerHTML = "You must type in a last name.";
+		invalid += 1;
+		} else {
+		document.getElementById("invlname").innerHTML = "";
+		}
+		
+		if (c == ""){
+	    document.getElementById("invaddress").innerHTML = "You must type in your address.";
+		invalid += 1;
+		} else {
+		 document.getElementById("invaddress").innerHTML = "";
+		}
+		
+		if (d == ""){
+	    document.getElementById("invcity").innerHTML = "You must type in your city.";
+		invalid += 1;
+		} else {
+		document.getElementById("invcity").innerHTML = "";
+		}
+		
+		if (e == ""){
+	    document.getElementById("invprovince").innerHTML = "You must select your province.";
+		invalid += 1;
+		} else {
+		document.getElementById("invprovince").innerHTML = "";
+		}
+		
+		if (f == ""){
+	    document.getElementById("invpostalcode").innerHTML = "You must type in your Postal Code.";
+		invalid += 1;
+		} else {
+		document.getElementById("invpostalcode").innerHTML = "";
+		}
+		
+		if (postalCode.value.length < 6) {
+        document.getElementById("invpostalcode").innerHTML = "Incomplete Postal Code.";
+        invalid += 1;
+        }
+		
+		
+		if ( w1 < 0){
+		document.getElementById("invw1").innerHTML = "Invalid widget#1 value.";
+		invalid +=1;
+		} 
+		
+		if ( w2 < 0){
+		document.getElementById("invw2").innerHTML = "Invalid widget#2 value.";
+		invalid +=1;
+		} 
+		
+		if ( w3 < 0){
+		document.getElementById("invw3").innerHTML = "Invalid widget#3 value.";
+		invalid +=1;
+		} 
+		
+		if ( w1==0 && w2==0 & w3==0){
+		document.getElementById("invw3").innerHTML = "You nust order at least one (1) widget.";
+		invalid +=1;
+		}
+		
+		
+		if (invalid != 0){
+		return false;
+		}
+		
+		if (invalid == 0){
+		return alert ("Your total is $" + (w1*5+w2*15+w3*25+5) + " . Click OK to confirm submission.");
+		return true;
+		}
+		
+	}
+		</script>
+    <body>
+	
+        <h2>            --------------------Order Form------------------</h2>
+		
+		
+        <form name="orderForm" onSubmit="return validation()" method="post" action="processForm.html">
+        
+		<fieldset>
+		<table>
+            <tr>
+                <th colspan="2">Personal Information</th>
+            </tr>
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" name="firstName" id="firstName" size="30"></td>
+				<td><p id = "invfname"> </p></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" name="lastName" id="lastName" size="30" ></td>
+				<td><p id = "invlname"> </p></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input type="text" name="address" id="address" size="30" ></td>
+				<td><p id = "invaddress"> </p></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><input type="text" name="city" id="city" size="30"></td>
+				<td><p id = "invcity"> </p></td>
+            </tr>
+            <tr>
+                <td>Province:</td>
+                <td><select name="province" id="province" size="1">
+                        <option disabled>Select a province</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="AB">Alberta</option>
+                        <option value="SK">Saskatchewan</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="ON">Ontario</option>
+                        <option value="QC">Québec</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="NF">Newfoundland</option>
+                        <option value="YK">Yukon</option>
+                        <option value="NWT">Northwest Territories</option>
+                        <option value="NU">Nunavut</option>
+                    </select>
+                </td>
+				<td><p id = "invprovince"> </p></td>
+            </tr>
+            <tr>
+                <td>Postal Code:</td>
+                <td><input type="text" name="postalCode" id="postalCode" maxlength="6" size="3"></td>
+				<td><p id = "invpostalcode"> </p></td>
+            </tr>
+			
+		<tr></tr>
+				<tr></tr>
+						<tr></tr>
+								<tr></tr>
+										<tr></tr>
+												<tr></tr>
+														<tr></tr>
+														
+            <tr>
+                <th colspan="2">Order Information</th>
+            </tr>
+            <tr>
+                <td rowspan="3">Select your products:<br>
+                    <span id="productError" class="errorMessage" hidden></span></td>
+                <td>Widget #1&nbsp;
+                    <input type="text" name="widget1qty" id="widget1qty" size="1" value="0">Qty @ <strong>$5.00/ea</strong></td>
+					<td><p id = "invw1"> </p></td>
+            </tr>
+            <tr>
+                <td>Widget #2&nbsp;
+                    <input type="text" name="widget2qty" id="widget2qty" size="1" value="0">Qty @ <strong>$15.00/ea</strong></td>
+					<td><p id = "invw2"> </p></td>
+            </tr>
+            <tr>
+                <td>Widget #3&nbsp;
+                    <input type="text" name="widget3qty" id="widget3qty" size="1" value="0">Qty @ <strong>$25.00/ea</strong></td>
+					<td><p id = "invw3"> </p></td>
+            </tr>
+			
+            <tr>
+                <td rowspan="3">Shipping Type:</td>
+                <td>Standard ($5.00)<input type="radio" name="shippingType" id="shippingTypeStandard" value="Standard" checked></td>
+
+            </tr>
+            <tr>
+                <td>Express ($10.00)<input type="radio" name="shippingType" id="shippingTypeExpress" value="Express"></td>
+            </tr>
+            <tr>
+                <td>Overnight ($20.00)<input type="radio" name="shippingType" id="shippingTypeOvernight" value="Overnight"></td>
+            </tr>
+            <tr>
+                <th colspan="2">Submit Order</th>
+            </tr>
+            <tr>
+                <td><input type="submit" name="btnSubmit" id="btnSubmit" value="Submit Order"></td>
+                <td><input type="reset" name="btnReset" id="btnReset" value="Reset Form"></td>
+            </tr>
+        </table>
+		</fieldset>
+        </form>
+	
+		
+    </body>
+	
+	<p align="center">
+      <a href="http://validator.w3.org/check?uri=referer"><img
+          src="http://www.w3.org/Icons/valid-xhtml10"
+          alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+    </p>
+</html>
