@@ -108,6 +108,19 @@ margin-top: 10px;
 	
 	h2 {
     text-align: center;
+	
+	div.form
+	{
+    display: block;
+    text-align: center;
+	}
+	form
+	{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+	}
 }
 	</style>
 		
@@ -221,7 +234,7 @@ margin-top: 10px;
 	
         <h2>            --------------------Order Form------------------</h2>
 		
-		
+		<div class="form">
         <form name="orderForm" onSubmit="return validation()" method="post" action="processForm.html">
         
 		<fieldset>
@@ -326,6 +339,7 @@ margin-top: 10px;
         </table>
 		</fieldset>
         </form>
+		</div>
 	
 		
     </body>
